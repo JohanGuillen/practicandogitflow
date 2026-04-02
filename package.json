@@ -1,0 +1,22 @@
+{
+  "name": "bookapp",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "qa": "cross-env NODE_ENV=qa nodemon server.js"
+  },
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "dotenv": "^16.4.0",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "multer": "^2.1.1",
+    "nodemailer": "^8.0.4",
+    "sequelize": "^6.37.8",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

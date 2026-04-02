@@ -1,0 +1,66 @@
+<h2>Crear Libro</h2>
+
+{{#if error}}
+<div class="alert alert-danger">
+    {{error}}
+</div>
+{{/if}}
+
+<form method="POST" enctype="multipart/form-data">
+
+    <!-- TÍTULO -->
+    <input 
+        type="text" 
+        name="title" 
+        placeholder="Título" 
+        class="form-control mb-2"
+        value="{{data.title}}"
+    >
+
+    <!-- AÑO -->
+    <input 
+        type="number" 
+        name="year" 
+        placeholder="Año" 
+        class="form-control mb-2"
+        value="{{data.year}}"
+    >
+
+    <!-- IMAGEN -->
+    <input type="file" name="cover" class="form-control mb-2">
+
+    <!-- AUTOR -->
+    <select name="AuthorId" class="form-select mb-2">
+        <option value="">Seleccione un autor</option>
+        {{#each authors}}
+        <option value="{{this.id}}" {{#ifEquals this.id ../data.AuthorId}}selected{{/ifEquals}}>
+            {{this.name}}
+        </option>
+        {{/each}}
+    </select>
+
+    <!-- CATEGORIA -->
+    <select name="CategoryId" class="form-select mb-2">
+        <option value="">Seleccione una categoría</option>
+        {{#each categories}}
+        <option value="{{this.id}}" {{#ifEquals this.id ../data.CategoryId}}selected{{/ifEquals}}>
+            {{this.name}}
+        </option>
+        {{/each}}
+    </select>
+
+    <!-- EDITORIAL -->
+    <select name="EditorialId" class="form-select mb-2">
+        <option value="">Seleccione una editorial</option>
+        {{#each editorials}}
+        <option value="{{this.id}}" {{#ifEquals this.id ../data.EditorialId}}selected{{/ifEquals}}>
+            {{this.name}}
+        </option>
+        {{/each}}
+    </select>
+
+    <!-- BOTONES -->
+    <button class="btn btn-success">Guardar</button>
+    <a href="/books" class="btn btn-secondary">Volver</a>
+
+</form>

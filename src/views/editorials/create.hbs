@@ -1,0 +1,38 @@
+<h2>Crear Editorial</h2>
+
+{{#if error}}
+<div class="alert alert-danger">
+    {{error}}
+</div>
+{{/if}}
+
+<form method="POST">
+
+    <input 
+        type="text" 
+        name="name" 
+        placeholder="Nombre" 
+        class="form-control mb-2"
+        value="{{data.name}}"
+    >
+
+    <input 
+        type="text" 
+        name="phone" 
+        placeholder="Teléfono" 
+        class="form-control mb-2"
+        value="{{data.phone}}"
+    >
+
+    <input 
+        type="text" 
+        name="country" 
+        placeholder="País" 
+        class="form-control mb-2"
+        value="{{data.country}}"
+    >
+
+    <button class="btn btn-success">Guardar</button>
+    <a href="/editorials" class="btn btn-secondary">Volver</a>
+
+</form>

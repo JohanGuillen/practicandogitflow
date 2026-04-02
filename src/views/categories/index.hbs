@@ -1,0 +1,28 @@
+<h2 class="mb-3">Categorías</h2>
+
+<a href="/categories/create" class="btn btn-primary mb-3">Crear Categoría</a>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+            <th>Cantidad de libros</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each categories}}
+        <tr>
+            <td>{{this.dataValues.totalBooks}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td>
+                <a href="/categories/{{this.id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/categories/{{this.id}}/delete" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

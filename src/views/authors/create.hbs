@@ -1,0 +1,30 @@
+<h2>Crear Autor</h2>
+
+{{#if error}}
+<div class="alert alert-danger">
+    {{error}}
+</div>
+{{/if}}
+
+<form method="POST">
+
+    <input 
+        type="text" 
+        name="name" 
+        placeholder="Nombre" 
+        class="form-control mb-2"
+        value="{{data.name}}"
+    >
+
+    <input 
+        type="email" 
+        name="email" 
+        placeholder="Email" 
+        class="form-control mb-2"
+        value="{{data.email}}"
+    >
+
+    <button class="btn btn-success">Guardar</button>
+    <a href="/authors" class="btn btn-secondary">Volver</a>
+
+</form>

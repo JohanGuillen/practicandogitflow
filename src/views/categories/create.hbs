@@ -1,0 +1,30 @@
+<h2>Crear Categoría</h2>
+
+{{#if error}}
+<div class="alert alert-danger">
+    {{error}}
+</div>
+{{/if}}
+
+<form method="POST">
+
+    <input 
+        type="text" 
+        name="name" 
+        placeholder="Nombre" 
+        class="form-control mb-2"
+        value="{{data.name}}"
+    >
+
+    <input 
+        type="text" 
+        name="description" 
+        placeholder="Descripción" 
+        class="form-control mb-2"
+        value="{{data.description}}"
+    >
+
+    <button class="btn btn-success">Guardar</button>
+    <a href="/categories" class="btn btn-secondary">Volver</a>
+
+</form>

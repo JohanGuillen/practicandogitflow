@@ -1,0 +1,45 @@
+<div class="container mt-4">
+
+    <a href="/" class="btn btn-secondary mb-3">⬅ Volver</a>
+
+    <div class="card shadow p-4">
+
+        <div class="row">
+
+            <!-- IMAGEN -->
+            <div class="col-md-4">
+                <img 
+                    src="/uploads/{{book.cover}}" 
+                    class="img-fluid rounded"
+                    onerror="this.src='https://via.placeholder.com/300'"
+                >
+            </div>
+
+            <!-- INFO -->
+            <div class="col-md-8">
+
+                <h2 class="fw-bold">{{book.title}}</h2>
+
+                <p><strong>Año:</strong> {{book.year}}</p>
+
+                <p><strong>Categoría:</strong> {{book.Category.name}}</p>
+
+                <p><strong>Autor:</strong> {{book.Author.name}}</p>
+
+                <p><strong>Email Autor:</strong> {{book.Author.email}}</p>
+
+                <hr>
+
+                <h5 class="fw-bold">Editorial</h5>
+
+                <p><strong>Nombre:</strong> {{book.Editorial.name}}</p>
+                <p><strong>País:</strong> {{book.Editorial.country}}</p>
+                <p><strong>Teléfono:</strong> {{book.Editorial.phone}}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
