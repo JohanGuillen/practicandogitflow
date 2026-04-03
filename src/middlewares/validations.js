@@ -72,3 +72,5 @@ exports.validateEditorial = (req, res, next) => {
 
     next();
 };
+
+//validaciones terminadas 
