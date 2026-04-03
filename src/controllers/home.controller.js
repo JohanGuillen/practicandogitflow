@@ -1,3 +1,4 @@
+
 const { Book, Category, Author, Editorial } = require('../models');
 const { Op } = require('sequelize');
 
@@ -34,3 +35,5 @@ exports.index = async (req, res) => {
         search
     });
 };
+
+//home teriminado 
