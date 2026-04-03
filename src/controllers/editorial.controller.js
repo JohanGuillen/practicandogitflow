@@ -1,3 +1,5 @@
+// Mejora en crud editoriales y terminado
+
 const { Editorial } = require('../models');
 
 // LISTAR
