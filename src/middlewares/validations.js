@@ -1,6 +1,6 @@
 const { Author, Category, Editorial } = require('../models');
 
-// 📚 LIBRO
+// LIBRO
 exports.validateBook = async (req, res, next) => {
 
     const { title, year, AuthorId, CategoryId, EditorialId } = req.body;
@@ -24,7 +24,7 @@ exports.validateBook = async (req, res, next) => {
 };
 
 
-// 📂 CATEGORÍA
+//  CATEGORÍA
 exports.validateCategory = (req, res, next) => {
 
     const { name, description } = req.body;
@@ -40,7 +40,7 @@ exports.validateCategory = (req, res, next) => {
 };
 
 
-// 👤 AUTOR
+// AUTOR
 exports.validateAuthor = (req, res, next) => {
 
     const { name, email } = req.body;
@@ -56,7 +56,7 @@ exports.validateAuthor = (req, res, next) => {
 };
 
 
-// 🏢 EDITORIAL
+//  EDITORIAL
 exports.validateEditorial = (req, res, next) => {
 
     const { name, phone, country } = req.body;
@@ -70,3 +70,5 @@ exports.validateEditorial = (req, res, next) => {
 
     next();
 };
+
+// Validaciones completado
