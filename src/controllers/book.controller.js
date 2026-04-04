@@ -96,10 +96,39 @@ exports.editForm = async (req, res) => {
 
 // EDITAR
 exports.update = async (req, res) => {
-    await Book.update(req.body, {
-        where: { id: req.params.id }
-    });
-    res.redirect('/books');
+    try {
+        const { title, year, AuthorId, CategoryId, EditorialId } = req.body;
+
+        await Book.update(
+            {
+                title,
+                year,
+                AuthorId: parseInt(AuthorId),
+                CategoryId: parseInt(CategoryId),
+                EditorialId: parseInt(EditorialId)
+            },
+            {
+                where: { id: req.params.id }
+            }
+        );
+
+        res.redirect('/books');
+
+    } catch (error) {
+        console.log("🔥 ERROR UPDATE:", error);
+
+        const authors = await Author.findAll();
+        const categories = await Category.findAll();
+        const editorials = await Editorial.findAll();
+
+        res.render('books/edit', {
+            error: 'Error al actualizar',
+            book: req.body,
+            authors,
+            categories,
+            editorials
+        });
+    }
 };
 
 // CONFIRMAR ELIMINAR

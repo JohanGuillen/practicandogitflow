@@ -1,4 +1,4 @@
-<h2>Crear Libro</h2>
+<h2 class="mb-4"> Crear Libro</h2>
 
 {{#if error}}
 <div class="alert alert-danger">
@@ -9,58 +9,92 @@
 <form method="POST" enctype="multipart/form-data">
 
     <!-- TÍTULO -->
-    <input 
-        type="text" 
-        name="title" 
-        placeholder="Título" 
-        class="form-control mb-2"
-        value="{{data.title}}"
-    >
+    <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input 
+            id="title"
+            type="text" 
+            name="title" 
+            placeholder="Ej: Don Quijote" 
+            class="form-control"
+            value="{{data.title}}"
+            required
+        >
+    </div>
 
     <!-- AÑO -->
-    <input 
-        type="number" 
-        name="year" 
-        placeholder="Año" 
-        class="form-control mb-2"
-        value="{{data.year}}"
-    >
+    <div class="mb-3">
+        <label class="form-label">Año</label>
+        <input 
+            id="year"
+            type="number" 
+            name="year" 
+            placeholder="Ej: 2024" 
+            class="form-control"
+            value="{{data.year}}"
+            required
+        >
+    </div>
 
     <!-- IMAGEN -->
-    <input type="file" name="cover" class="form-control mb-2">
+    <div class="mb-3">
+        <label class="form-label">Portada</label>
+        <input 
+            id="cover"
+            type="file" 
+            name="cover" 
+            class="form-control"
+        >
+    </div>
 
     <!-- AUTOR -->
-    <select name="AuthorId" class="form-select mb-2">
-        <option value="">Seleccione un autor</option>
-        {{#each authors}}
-        <option value="{{this.id}}" {{#ifEquals this.id ../data.AuthorId}}selected{{/ifEquals}}>
-            {{this.name}}
-        </option>
-        {{/each}}
-    </select>
+    <div class="mb-3">
+        <label class="form-label">Autor</label>
+        <select id="author" name="AuthorId" class="form-select" required>
+            <option value="">Seleccione un autor</option>
+            {{#each authors}}
+            <option value="{{this.id}}" {{#ifEquals this.id ../data.AuthorId}}selected{{/ifEquals}}>
+                {{this.name}}
+            </option>
+            {{/each}}
+        </select>
+    </div>
 
     <!-- CATEGORIA -->
-    <select name="CategoryId" class="form-select mb-2">
-        <option value="">Seleccione una categoría</option>
-        {{#each categories}}
-        <option value="{{this.id}}" {{#ifEquals this.id ../data.CategoryId}}selected{{/ifEquals}}>
-            {{this.name}}
-        </option>
-        {{/each}}
-    </select>
+    <div class="mb-3">
+        <label class="form-label">Categoría</label>
+        <select id="category" name="CategoryId" class="form-select" required>
+            <option value="">Seleccione una categoría</option>
+            {{#each categories}}
+            <option value="{{this.id}}" {{#ifEquals this.id ../data.CategoryId}}selected{{/ifEquals}}>
+                {{this.name}}
+            </option>
+            {{/each}}
+        </select>
+    </div>
 
     <!-- EDITORIAL -->
-    <select name="EditorialId" class="form-select mb-2">
-        <option value="">Seleccione una editorial</option>
-        {{#each editorials}}
-        <option value="{{this.id}}" {{#ifEquals this.id ../data.EditorialId}}selected{{/ifEquals}}>
-            {{this.name}}
-        </option>
-        {{/each}}
-    </select>
+    <div class="mb-3">
+        <label class="form-label">Editorial</label>
+        <select id="editorial" name="EditorialId" class="form-select" required>
+            <option value="">Seleccione una editorial</option>
+            {{#each editorials}}
+            <option value="{{this.id}}" {{#ifEquals this.id ../data.EditorialId}}selected{{/ifEquals}}>
+                {{this.name}}
+            </option>
+            {{/each}}
+        </select>
+    </div>
 
     <!-- BOTONES -->
-    <button class="btn btn-success">Guardar</button>
-    <a href="/books" class="btn btn-secondary">Volver</a>
+    <div class="d-flex gap-2">
+        <button id="saveBtn" type="submit" class="btn btn-success">
+            <i class="bi bi-save"></i> Guardar
+        </button>
+
+        <a href="/books" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
 
 </form>

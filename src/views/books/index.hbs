@@ -1,6 +1,8 @@
 <h2>Libros</h2>
 
-<a href="/books/create" class="btn btn-primary mb-3">Crear Libro</a>
+<a href="/books/create" id="createBtn" class="btn btn-primary mb-3">
+    Crear Libro
+</a>
 
 <table class="table table-dark">
     <thead>
@@ -23,8 +25,14 @@
             <td>{{this.Category.name}}</td>
             <td>{{this.Editorial.name}}</td>
             <td>
-                <a href="/books/{{this.id}}/edit" class="btn btn-warning btn-sm">Editar</a>
-                <a href="/books/{{this.id}}/delete" class="btn btn-danger btn-sm">Eliminar</a>
+                <!-- dinámicos -->
+                <a href="/books/{{this.id}}/edit" id="editBtn" class="btn btn-warning btn-sm">
+                    Editar
+                </a>
+
+                <a href="/books/{{this.id}}/delete" id="deleteBtn" class="btn btn-danger btn-sm">
+                    Eliminar
+                </a>
             </td>
         </tr>
         {{/each}}

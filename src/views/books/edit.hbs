@@ -1,6 +1,6 @@
 <h2>Editar Libro</h2>
 
-<form method="POST">
+<form method="POST" action="/books/{{book.id}}/edit" enctype="multipart/form-data">
 
     <input type="text" name="title" value="{{book.title}}" class="form-control mb-2">
     <input type="number" name="year" value="{{book.year}}" class="form-control mb-2">

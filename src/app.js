@@ -1,12 +1,14 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const hbs = require('hbs');
 
 const app = express();
-
 const sequelize = require('./config/database');
 
-
+// ======================
+// DATABASE
+// ======================
 sequelize.sync({ force: false })
     .then(() => {
         console.log('Base de datos sincronizada');
@@ -20,19 +22,25 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 hbs.registerPartials(path.join(__dirname, 'views/layouts'));
+
 hbs.registerHelper('ifEquals', function(a, b, options) {
     return a == b ? options.fn(this) : options.inverse(this);
 });
 
-//  ESTO ACTIVA EL LAYOUT POR DEFECTO
 app.set('view options', { layout: 'layouts/layout' });
+
 // ======================
 // MIDDLEWARES
 // ======================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// STATIC
+app.use(session({
+    secret: 'secreto123',
+    resave: false,
+    saveUninitialized: true
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ======================
@@ -49,3 +57,4 @@ app.use((req, res) => {
 });
 
 module.exports = app;
+

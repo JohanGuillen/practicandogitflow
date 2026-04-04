@@ -4,26 +4,24 @@ const controller = require('../controllers/book.controller');
 
 const upload = require('../middlewares/multer');
 const { validateBook } = require('../middlewares/validations');
+const auth = require('../middlewares/auth');
 
 // LISTADO
-router.get('/', controller.index);
+router.get('/', auth, controller.index);
 
-// FORM CREAR
-router.get('/create', controller.createForm);
+// CREAR
+router.get('/create', auth, controller.createForm);
+router.post('/create', auth, upload.single('cover'), validateBook, controller.create);
 
-
-router.post('/create', upload.single('cover'), validateBook, controller.create);
-
-router.get('/:id', controller.detail);
-
+// DETALLE
+router.get('/:id', auth, controller.detail);
 
 // EDITAR
-router.get('/:id/edit', controller.editForm);
-router.post('/:id/edit', upload.single('cover'), controller.update);
-
+router.get('/:id/edit', auth, controller.editForm);
+router.post('/:id/edit', auth, upload.single('cover'), controller.update);
 
 // ELIMINAR
-router.get('/:id/delete', controller.deleteForm);
-router.post('/:id/delete', controller.delete);
+router.get('/:id/delete', auth, controller.deleteForm);
+router.post('/:id/delete', auth, controller.delete);
 
 module.exports = router;

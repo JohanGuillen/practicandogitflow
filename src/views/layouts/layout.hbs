@@ -13,8 +13,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body style="background-color: #f5f6fa;">
 
+<!-- 👇 SOLO MOSTRAR NAVBAR SI NO ES LOGIN -->
+{{#unless isLogin}}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container">
@@ -60,14 +63,22 @@
                     </a>
                 </li>
 
+                <!-- 🔥 LOGOUT -->
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="/logout">
+                        <i class="bi bi-box-arrow-right"></i> Salir
+                    </a>
+                </li>
+
             </ul>
         </div>
 
     </div>
 </nav>
 
+{{/unless}}
 
-<div class="container mt-4">
+<div class="{{#if isLogin}}d-flex justify-content-center align-items-center vh-100{{else}}container mt-4{{/if}}">
     {{{body}}}
 </div>
 

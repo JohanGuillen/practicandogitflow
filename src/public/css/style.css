@@ -5,3 +5,15 @@ body {
 .card {
     border-radius: 10px;
 }
+body {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+
+.card {
+    border: none;
+}
+
+input:focus {
+    box-shadow: none !important;
+    border-color: #343a40 !important;
+}
